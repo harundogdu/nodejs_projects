@@ -1,0 +1,69 @@
+<%- include('partials/header.ejs') -%>
+
+    <body>
+        <div class="tm-page-wrap mx-auto">
+            <div class="position-relative">
+                <%- include('partials/navigation.ejs') -%>
+                    <div class="tm-welcome-container text-center text-white">
+                        <div class="tm-welcome-container-inner">
+                            <p class="tm-welcome-text mb-1 text-white">Video Catalog is brought to you by TemplateMo.
+                            </p>
+                            <p class="tm-welcome-text mb-5 text-white">This is a full-width video banner.</p>
+                            <a href="#content" class="btn tm-btn-animate tm-btn-cta tm-icon-down">
+                                <span>Discover</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="tm-video-container">
+                        <img src="img/about-1.jpg" alt="">
+                    </div>
+
+            </div>
+
+            <div class="container-fluid">
+                <div id="content" class="mx-auto tm-content-container">
+                    <main>
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="tm-page-title mb-4">My Photos</h2>
+                            </div>
+                        </div>
+
+                        <div class="row tm-catalog-item-list">
+
+                            <!-- items start -->
+                            <% for(let i=0 ; i < photos.length; i++) { %>
+                                <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+                                    <div class="position-relative tm-thumbnail-container">
+                                        <img src="<%= photos[i].image %>" alt="Image" class="img-fluid tm-catalog-item-img">
+                                        <a href="/details/<%= photos[i]._id %>" class="position-absolute tm-img-overlay">
+                                            <i class="fas fa-play tm-overlay-icon"></i>
+                                        </a>
+                                    </div>
+                                    <div class="p-4 tm-bg-gray tm-catalog-item-description">
+                                        <h3 class="tm-text-primary mb-3 tm-catalog-item-title">
+                                            <%= photos[i].title %>
+                                        </h3>
+                                        <p class="tm-catalog-item-text">
+                                            <%= photos[i].description %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <!-- items end -->
+
+                        </div>
+
+                        <!-- Catalog Paging Buttons -->
+                        <div>
+                            <ul class="nav tm-paging-links">
+                                <li class="nav-item active"><a href="#" class="nav-link tm-paging-link">1</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link tm-paging-link">2</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link tm-paging-link">3</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link tm-paging-link">4</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link tm-paging-link">></a></li>
+                            </ul>
+                        </div>
+                    </main>
+                    <%- include('partials/footer.ejs') -%>

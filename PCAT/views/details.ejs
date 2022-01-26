@@ -1,0 +1,61 @@
+<%- include('partials/header.ejs') -%>
+
+    <body>
+        <div class="tm-page-wrap mx-auto">
+            <div class="position-relative">
+
+                <%- include('partials/navigation.ejs') -%>
+
+                    <div class="tm-welcome-container tm-fixed-header tm-fixed-header-1">
+                        <div class="text-center">
+                            <p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 text-white mx-auto">
+                            <h1 class="text-white display-4">
+                                <%= photo.title %>
+                            </h1> <br /> <span class="text-white font-weight-bolder h2">Details Page</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Header image -->
+                    <div id="tm-fixed-header-bg"></div>
+            </div>
+
+            <!-- Page content -->
+            <div class="container-fluid">
+                <div class="mx-auto tm-content-container">
+                    <main>
+                        <div class="row mb-5 pb-4">
+                            <div class="col-12">
+                                <img src="<%= photo.image %>" alt="<%= photo.title %> image" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row mb-5 pb-5">
+
+                            <div class="col-xl-8 col-lg-7">
+                                <!-- Video description -->
+                                <div class="tm-video-description-box">
+                                    <h2 class="mb-5 tm-video-title">
+                                        <%= photo.title %>
+                                    </h2>
+                                    <p class="mb-4">
+                                        <%= photo.description %>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-5">
+                                <!-- Share box -->
+                                <div class="tm-bg-gray tm-share-box">
+                                    <div>
+                                        <button class="btn btn-warning p-0 tm-btn-animate tm-btn-download">Update
+                                            Photo</button>
+                                    </div>
+                                    <div class="mt-4">
+                                        <button class="btn btn-danger p-0 tm-btn-animate tm-btn-download">Delete
+                                            Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </main>
+
+                    <%- include('partials/footer.ejs') -%>
