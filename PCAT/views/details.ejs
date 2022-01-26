@@ -45,12 +45,15 @@
                                 <!-- Share box -->
                                 <div class="tm-bg-gray tm-share-box">
                                     <div>
-                                        <button class="btn btn-warning p-0 tm-btn-animate tm-btn-download">Update
-                                            Photo</button>
+                                        <a href="/photos/<%= photo.id %>/edit"
+                                            class="btn btn-warning p-0 tm-btn-animate tm-btn-download">Update
+                                            Details</a>
                                     </div>
                                     <div class="mt-4">
-                                        <button class="btn btn-danger p-0 tm-btn-animate tm-btn-download">Delete
-                                            Photo</button>
+                                        <a href="/photos/<%= photo.id %>?_method=DELETE"
+                                            class="btn btn-danger p-0 tm-btn-animate tm-btn-download"
+                                            onclick="return confirm('Are you sure?')">Delete
+                                            Photo</a>
                                     </div>
                                 </div>
                             </div>

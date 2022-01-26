@@ -39,3 +39,28 @@ exports.getPhotoDetails = async (req, res) => {
         photo: photo
     });
 }
+
+exports.getEditPhoto = async (req, res) => {
+    const photo = await Photo.findById(req.params.id);
+    res.render('edit', {
+        photo
+    });
+}
+
+exports.updatePhoto = async (req, res) => {
+    console.log(req.params.id);
+    const photo = await Photo.findById(req.params.id);
+
+    photo.title = req.body.title;
+    photo.description = req.body.description;
+    photo.save();
+
+    res.redirect(`/details/${photo._id}`);
+}
+
+exports.deletePhoto = async (req, res) => {
+    const photo = await Photo.findById(req.params.id);
+    await fs.unlinkSync(`public${photo.image}`);
+    await photo.remove();
+    res.redirect('/');
+}

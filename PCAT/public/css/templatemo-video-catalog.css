@@ -336,6 +336,7 @@ h2, p { color: #666666; }
 .tm-btn-download {
     width: 280px;
     height: 60px;
+    line-height: 60px;
 }
 
 .tm-likes-box { padding-top: 12px; }
