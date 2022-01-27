@@ -1,9 +1,31 @@
 {
+  "name": "pcat",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "devDependencies": {},
   "dependencies": {
+    "dotenv": "^14.3.2",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "express-fileupload": "^1.2.1",
     "method-override": "^3.0.0",
     "mongoose": "^6.1.8"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harundogdu/nodejs_projects.git#master"
+  },
+  "keywords": [
+    "pcat"
+  ],
+  "author": "Harun Doğdu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harundogdu/nodejs_projects/issues"
+  },
+  "homepage": "https://github.com/harundogdu/nodejs_projects/tree/master#readme",
+  "description": ""
 }

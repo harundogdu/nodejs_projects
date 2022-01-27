@@ -1,17 +1,26 @@
 const fs = require('fs');
 const Photo = require('../models/photo');
 
-exports.getAllPhotos = (req, res) => {
+exports.getAllPhotos = async (req, res) => {
+    const page = Number.parseInt(req.query.page) || 1;
+    const limit =2;
+    const skip = (page - 1) * limit;
+    const totalPhotos = await Photo.countDocuments();
+
     Photo.find({}, (err, photos) => {
         if (err) {
             console.log(err);
             return res.status(500).send();
         }
         return res.render('index', {
-            photos
+            photos,
+            current: page,
+            pages: Math.ceil(totalPhotos / limit),
         });
     }
-    ).sort('-date');
+    ).sort('-date')
+        .skip(skip)
+        .limit(limit);
 };
 
 exports.createPhoto = async (req, res) => {
