@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require('express-session')
 const path = require("path");
 const ejs = require("ejs");
 const app = express();
@@ -10,6 +11,11 @@ const port = process.env.PORT || 3000;
 const PageRouter = require("./routing/PageRouter");
 const CategoryRouter = require("./routing/CategoryRouter");
 const CourseRouter = require("./routing/CourseRouter");
+const AuthRouter = require("./routing/AuthRouter");
+
+
+/* globals */
+global.userIN = null;
 
 /* database connect */
 mongoose
@@ -34,11 +40,24 @@ app.use(
         extended: true,
     })
 );
+app.use(
+    session({
+        secret: 'smartedu-secret', // session secret
+        resave: false,
+        saveUninitialized: true,
+    })
+);
+app.use('*', (req, res, next) => {
+    userIN = req.session.userID;
+    next();
+});
+
 
 /* routes */
 app.use("/", PageRouter);
 app.use("/category", CategoryRouter);
 app.use("/course", CourseRouter);
+app.use("/users", AuthRouter);
 
 /* server */
 app.listen(port, () => {

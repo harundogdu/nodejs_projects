@@ -21,30 +21,47 @@
 					</li>
 					<li class="nav-item <%= title === 'Courses' && 'active' %>">
 						<a class="nav-link" href="/courses">Courses</a>
-					</li>
-					<li class="nav-item <%= title === 'Dashboard' && 'active' %>">
-						<a class="nav-link" href="/dashboard">Dashboard</a>
-					</li>
+					</li>					
 					<li class="nav-item <%= title === 'Contact' && 'active' %>">
 						<a class="nav-link" href="/contact">Contact</a>
 					</li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="hover-btn-new log orange mr-2" href="login.html">
-							<span>
-								<i class="fa fa-sign-in" aria-hidden="true"></i>
-							</span>
-						</a>
+					<% if(userIN) { %>
+					<li class="nav-item <%= title === 'Dashboard' && 'active' %>">
+						<a class="nav-link" href="/dashboard">Dashboard</a>
 					</li>
-					<li>
-						<a class="hover-btn-new log orange" href="register.html">
-							<span>
-								<i class="fa fa-user-plus" aria-hidden="true"></i>
-							</span>
-						</a>
-					</li>
+					<% }%>
 				</ul>
+
+				<% if(!userIN) { %>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a class="hover-btn-new log orange mr-2" href="/login">
+								<span>
+									<i class="fa fa-sign-in" aria-hidden="true"></i>
+								</span>
+							</a>
+						</li>
+						<li>
+							<a class="hover-btn-new log orange" href="/register">
+								<span>
+									<i class="fa fa-user-plus" aria-hidden="true"></i>
+								</span>
+							</a>
+						</li>
+					</ul>
+				<% }%>
+
+				<% if(userIN) { %>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a class="hover-btn-new log orange mr-2" href="/users/logout">
+								<span>
+									<i class="fa fa-sign-out" aria-hidden="true"></i>
+								</span>
+							</a>
+						</li>						
+					</ul>
+				<% }%>
 			</div>
 		</div>
 	</nav>
