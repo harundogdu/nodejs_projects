@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require('express-session')
+const MongoStore = require('connect-mongo');
 const path = require("path");
 const ejs = require("ejs");
 const app = express();
@@ -12,7 +13,6 @@ const PageRouter = require("./routing/PageRouter");
 const CategoryRouter = require("./routing/CategoryRouter");
 const CourseRouter = require("./routing/CourseRouter");
 const AuthRouter = require("./routing/AuthRouter");
-
 
 /* globals */
 global.userIN = null;
@@ -51,6 +51,9 @@ app.use('*', (req, res, next) => {
     userIN = req.session.userID;
     next();
 });
+app.use(session({
+    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/smartedu' })
+}));
 
 
 /* routes */

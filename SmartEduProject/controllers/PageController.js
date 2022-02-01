@@ -27,11 +27,6 @@ exports.getCoursesPage = async function (req, res) {
         categories
     });
 }
-exports.getDashboardPage = function (req, res) {
-    res.render('dashboard', {
-        title: 'Dashboard'
-    });
-}
 exports.getContactPage = function (req, res) {
     res.render('contact', {
         title: 'Contact'
