@@ -13,39 +13,43 @@
 					<div class="col-lg-9 blog-post-single">
 						<div class="row">
 
-							<% for(i=0; i < courses.length; i++) { %>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="course-item mb-5">
-										<div class="image-blog">
-											<img src="/images/blog_1.jpg" alt="Course Image" class="img-fluid">
-										</div>
-										<div class="course-br">
-											<div class="course-title">
-												<h2>
-													<a href="/course/<%= courses[i].slug %>"
-														title="<%= courses[i].name %>">
-														<%= courses[i].name %>
-													</a>
-												</h2>
-											</div>
-											<div class="course-desc">
-												<p>
-													<%= courses[i].description.substring(0, 100) + "..." %>
-												</p>
-											</div>
-										</div>
-										<div class="course-meta-bot">
-											<ul>
-												<li>
-													<i class="fa fa-user" aria-hidden="true"></i>
-													Harun Doğdu
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div><!-- end col -->
-
+							<% if(courses.length===0 ) { %>
+								<h1>No courses found...</h1>
 								<% } %>
+
+									<% for(i=0; i < courses.length; i++) { %>
+										<div class="col-lg-6 col-md-6 col-12">
+											<div class="course-item mb-5">
+												<div class="image-blog">
+													<img src="/images/blog_1.jpg" alt="Course Image" class="img-fluid">
+												</div>
+												<div class="course-br">
+													<div class="course-title">
+														<h2>
+															<a href="/course/<%= courses[i].slug %>"
+																title="<%= courses[i].name %>">
+																<%= courses[i].name %>
+															</a>
+														</h2>
+													</div>
+													<div class="course-desc">
+														<p>
+															<%= courses[i].description.substring(0, 100) + "..." %>
+														</p>
+													</div>
+												</div>
+												<div class="course-meta-bot">
+													<ul>
+														<li>
+															<i class="fa fa-user" aria-hidden="true"></i>
+															Harun Doğdu
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div><!-- end col -->
+
+										<% } %>
 
 
 						</div><!-- end row -->
